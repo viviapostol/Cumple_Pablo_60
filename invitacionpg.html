@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pablo 60</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:420px;
+    border:4px solid #c62828;
+    border-radius:20px;
+    padding:30px 20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    background:white;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:#c62828;
+    top:-90px;
+    left:-90px;
+    border-radius:50%;
+    opacity:.15;
+}
+
+.card::after{
+    content:'';
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:#c62828;
+    bottom:-90px;
+    right:-90px;
+    border-radius:50%;
+    opacity:.15;
+}
+
+.nombre{
+    color:#c62828;
+    font-size:50px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+.numero{
+    color:#c62828;
+    font-size:120px;
+    font-weight:bold;
+    line-height:1;
+}
+
+.detalle{
+    color:#c62828;
+    margin:10px 0;
+    font-size:18px;
+}
+
+.boton{
+    background:#c62828;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    justify-content:center;
+    align-items:center;
+}
+
+.formulario{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    width:90%;
+    max-width:350px;
+}
+
+.formulario h2{
+    color:#c62828;
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.enviar{
+    width:100%;
+    background:#c62828;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="nombre">PABLO</div>
+
+    <div class="numero">60</div>
+
+    <div class="detalle">
+        Sábado 14 de Noviembre de 2026
+    </div>
+
+    <div class="detalle">
+        21:00 hs
+    </div>
+
+    <div class="detalle">
+        Sportclub Castelar
+    </div>
+
+    <div class="detalle">
+        Av. Gaona 6050 (Colectora Sur)
+    </div>
+
+    <button class="boton" onclick="abrirModal()">
+        CONFIRMAR ASISTENCIA
+    </button>
+
+</div>
+
+<div class="modal" id="modal">
+
+    <div class="formulario">
+
+        <h2>Confirmar asistencia</h2>
+
+        <input type="text" id="nombre" placeholder="Nombre">
+
+        <input type="text" id="apellido" placeholder="Apellido">
+
+        <button class="enviar" onclick="enviar()">
+            Enviar
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+function abrirModal(){
+    document.getElementById('modal').style.display='flex';
+}
+
+function enviar(){
+
+    let nombre=document.getElementById('nombre').value;
+    let apellido=document.getElementById('apellido').value;
+
+    if(nombre=='' || apellido==''){
+        alert('Completa todos los campos');
+        return;
+    }
+
+    alert(
+        'Gracias ' + nombre +
+        '. Tu asistencia fue registrada.'
+    );
+
+    document.getElementById('modal').style.display='none';
+}
+
+</script>
+
+</body>
+</html>
