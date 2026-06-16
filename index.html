@@ -3,204 +3,372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pablo 60</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#ffffff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:20px;
+background:#ffffff;
+font-family:'Montserrat',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+overflow-x:hidden;
 }
 
-.card{
-    width:100%;
-    max-width:420px;
-    border:4px solid #c62828;
-    border-radius:20px;
-    padding:30px 20px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-    background:white;
+.invitation{
+position:relative;
+width:100%;
+max-width:450px;
+background:#fff;
+border:4px solid #b71c1c;
+padding:40px 25px;
+text-align:center;
+overflow:hidden;
 }
 
-.card::before{
-    content:'';
-    position:absolute;
-    width:180px;
-    height:180px;
-    background:#c62828;
-    top:-90px;
-    left:-90px;
-    border-radius:50%;
-    opacity:.15;
+.invitation::before{
+content:"";
+position:absolute;
+top:-120px;
+left:-120px;
+width:250px;
+height:250px;
+background:#c62828;
+border-radius:50%;
+opacity:.08;
 }
 
-.card::after{
-    content:'';
-    position:absolute;
-    width:180px;
-    height:180px;
-    background:#c62828;
-    bottom:-90px;
-    right:-90px;
-    border-radius:50%;
-    opacity:.15;
+.invitation::after{
+content:"";
+position:absolute;
+bottom:-120px;
+right:-120px;
+width:250px;
+height:250px;
+background:#c62828;
+border-radius:50%;
+opacity:.08;
 }
 
-.nombre{
-    color:#c62828;
-    font-size:50px;
-    font-weight:bold;
-    margin-top:20px;
+.border{
+position:absolute;
+top:12px;
+left:12px;
+right:12px;
+bottom:12px;
+border:2px solid #c62828;
+pointer-events:none;
+}
+
+.birthday{
+font-family:'Playfair Display',serif;
+font-size:28px;
+color:#b71c1c;
+margin-top:15px;
+margin-bottom:10px;
+}
+
+.line{
+width:90px;
+height:2px;
+background:#b71c1c;
+margin:0 auto 25px;
+}
+
+.name{
+font-size:54px;
+font-weight:700;
+color:#b71c1c;
+letter-spacing:4px;
+}
+
+.cumple{
+font-size:22px;
+color:#b71c1c;
+margin-top:5px;
+letter-spacing:3px;
 }
 
 .numero{
-    color:#c62828;
-    font-size:120px;
-    font-weight:bold;
-    line-height:1;
+font-size:150px;
+font-weight:700;
+line-height:1;
+color:#b71c1c;
+margin-top:10px;
 }
 
-.detalle{
-    color:#c62828;
-    margin:10px 0;
-    font-size:18px;
+.frase{
+margin-top:10px;
+font-size:15px;
+font-weight:600;
+color:#b71c1c;
+letter-spacing:1px;
+line-height:1.5;
+}
+.info{
+margin-top:35px;
+display:flex;
+justify-content:space-between;
+gap:10px;
 }
 
-.boton{
-    background:#c62828;
-    color:white;
-    border:none;
-    padding:15px 30px;
-    border-radius:30px;
-    font-size:18px;
-    cursor:pointer;
-    margin-top:20px;
+.info-box{
+flex:1;
+color:#b71c1c;
+}
+
+.icon{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.info-box h3{
+font-size:12px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+.info-box p{
+font-size:11px;
+line-height:1.4;
+}
+
+.confirmar{
+margin-top:35px;
+background:#b71c1c;
+color:white;
+border:none;
+padding:16px 30px;
+font-size:16px;
+font-weight:700;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+.confirmar:hover{
+transform:scale(1.05);
 }
 
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.7);
-    justify-content:center;
-    align-items:center;
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:999;
 }
 
 .formulario{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    width:90%;
-    max-width:350px;
+background:white;
+width:100%;
+max-width:350px;
+padding:25px;
+border-radius:20px;
 }
 
 .formulario h2{
-    color:#c62828;
-    margin-bottom:15px;
+color:#b71c1c;
+margin-bottom:15px;
 }
 
-input{
-    width:100%;
-    padding:12px;
-    margin-bottom:10px;
-    border:1px solid #ccc;
-    border-radius:8px;
+.formulario input{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:15px;
 }
 
 .enviar{
-    width:100%;
-    background:#c62828;
-    color:white;
-    border:none;
-    padding:12px;
-    border-radius:8px;
-    cursor:pointer;
+width:100%;
+padding:14px;
+background:#b71c1c;
+color:white;
+border:none;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
 }
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.invitation{
+animation:aparecer 1s ease;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="invitation">
 
-    <div class="nombre">PABLO</div>
+<div class="border"></div>
 
-    <div class="numero">60</div>
+<div class="birthday">
+Birthday Party
+</div>
 
-    <div class="detalle">
-        Sábado 14 de Noviembre de 2026
-    </div>
+<div class="line"></div>
 
-    <div class="detalle">
-        21:00 hs
-    </div>
+<div class="name">
+PABLO
+</div>
 
-    <div class="detalle">
-        Sportclub Castelar
-    </div>
+<div class="cumple">
+CUMPLE
+</div>
 
-    <div class="detalle">
-        Av. Gaona 6050 (Colectora Sur)
-    </div>
+<div class="numero">
+60
+</div>
 
-    <button class="boton" onclick="abrirModal()">
-        CONFIRMAR ASISTENCIA
-    </button>
+<div class="frase">
+Y LO VAMOS A FESTEJAR<br>
+COMO SE MERECE
+</div>
+<div class="info">
+
+<div class="info-box">
+<div class="icon">📅</div>
+<h3>FECHA</h3>
+<p>
+SÁBADO<br>
+14 NOVIEMBRE<br>
+2026
+</p>
+</div>
+
+<div class="info-box">
+<div class="icon">🕒</div>
+<h3>HORA</h3>
+<p>
+21:00 HS
+</p>
+</div>
+
+<div class="info-box">
+<div class="icon">📍</div>
+<h3>LUGAR</h3>
+<p>
+SPORTCLUB<br>
+CASTELAR
+</p>
+</div>
+
+</div>
+
+<button class="confirmar" onclick="abrirModal()">
+CONFIRMAR ASISTENCIA
+</button>
 
 </div>
 
 <div class="modal" id="modal">
 
-    <div class="formulario">
+<div class="formulario">
 
-        <h2>Confirmar asistencia</h2>
+<h2>Confirmar asistencia</h2>
 
-        <input type="text" id="nombre" placeholder="Nombre">
+<input
+type="text"
+id="nombre"
+placeholder="Nombre"
+/>
 
-        <input type="text" id="apellido" placeholder="Apellido">
+<input
+type="text"
+id="apellido"
+placeholder="Apellido"
+/>
 
-        <button class="enviar" onclick="enviar()">
-            Enviar
-        </button>
+<button
+class="enviar"
+onclick="enviarFormulario()"
+>
+ENVIAR
+</button>
 
-    </div>
+</div>
 
 </div>
 
 <script>
 
 function abrirModal(){
-    document.getElementById('modal').style.display='flex';
+document.getElementById("modal").style.display="flex";
 }
 
-function enviar(){
+function cerrarModal(){
+document.getElementById("modal").style.display="none";
+}
+function enviarFormulario(){
 
-    let nombre=document.getElementById('nombre').value;
-    let apellido=document.getElementById('apellido').value;
+let nombre =
+document.getElementById("nombre").value;
 
-    if(nombre=='' || apellido==''){
-        alert('Completa todos los campos');
-        return;
-    }
+let apellido =
+document.getElementById("apellido").value;
 
-    alert(
-        'Gracias ' + nombre +
-        '. Tu asistencia fue registrada.'
-    );
+if(nombre === "" || apellido === ""){
+alert("Por favor completa todos los campos");
+return;
+}
 
-    document.getElementById('modal').style.display='none';
+alert(
+"¡Gracias " +
+nombre +
+" " +
+apellido +
+"! Tu asistencia fue registrada."
+);
+
+document.getElementById("nombre").value="";
+document.getElementById("apellido").value="";
+
+cerrarModal();
+
+}
+
+/* Cerrar modal tocando afuera */
+
+window.onclick = function(event){
+
+const modal =
+document.getElementById("modal");
+
+if(event.target === modal){
+cerrarModal();
+}
+
 }
 
 </script>
