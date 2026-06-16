@@ -85,7 +85,44 @@ bottom:12px;
 border:2px solid #d4af37;
 pointer-events:none;
 }
+.corner{
+    position:absolute;
+    width:35px;
+    height:35px;
+    border:3px solid #b71c1c;
+}
 
+.corner-tl{
+    top:8px;
+    left:8px;
+    border-right:none;
+    border-bottom:none;
+    border-radius:18px 0 0 0;
+}
+
+.corner-tr{
+    top:8px;
+    right:8px;
+    border-left:none;
+    border-bottom:none;
+    border-radius:0 18px 0 0;
+}
+
+.corner-bl{
+    bottom:8px;
+    left:8px;
+    border-right:none;
+    border-top:none;
+    border-radius:0 0 0 18px;
+}
+
+.corner-br{
+    bottom:8px;
+    right:8px;
+    border-left:none;
+    border-top:none;
+    border-radius:0 0 18px 0;
+}
 .birthday{
     font-family:'Dancing Script', cursive;
     font-size:42px;
@@ -176,7 +213,12 @@ margin-bottom:5px;
 font-size:11px;
 line-height:1.4;
 }
-
+.separador{
+    width:1px;
+    height:90px;
+    background:#c62828;
+    opacity:.4;
+}
 .confirmar{
 margin-top:35px;
 background:#b71c1c;
@@ -277,7 +319,10 @@ animation:aparecer 1s ease;
 <body>
 
 <div class="invitation">
-
+<div class="corner corner-tl"></div>
+<div class="corner corner-tr"></div>
+<div class="corner corner-bl"></div>
+<div class="corner corner-br"></div>
 <div class="border"></div>
 
 <div class="birthday">
@@ -318,7 +363,7 @@ SÁBADO<br>
 2026
 </p>
 </div>
-
+<div class="separador"></div>
 <div class="info-box">
 <div class="icon">🕒</div>
 <h3>HORA</h3>
@@ -326,7 +371,7 @@ SÁBADO<br>
 21:00 HS
 </p>
 </div>
-
+<div class="separador"></div>
 <div class="info-box">
 <div class="icon">📍</div>
 <h3>LUGAR</h3>
