@@ -161,7 +161,22 @@ transition:.3s;
 .confirmar:hover{
 transform:scale(1.05);
 }
+.mapa{
+display:inline-block;
+margin-top:10px;
+padding:12px 25px;
+background:white;
+border:2px solid #b71c1c;
+color:#b71c1c;
+text-decoration:none;
+border-radius:30px;
+font-weight:700;
+}
 
+.mapa:hover{
+background:#b71c1c;
+color:white;
+}
 .modal{
 display:none;
 position:fixed;
@@ -280,7 +295,9 @@ SÁBADO<br>
 <h3>LUGAR</h3>
 <p>
 SPORTCLUB<br>
-CASTELAR
+CASTELAR<br>
+Av. Gaona 6050<br>
+(Colectora Sur)
 </p>
 </div>
 
@@ -289,7 +306,15 @@ CASTELAR
 <button class="confirmar" onclick="abrirModal()">
 CONFIRMAR ASISTENCIA
 </button>
+<br><br>
 
+<a
+href="https://maps.google.com/?q=Av.+Gaona+6050+Castelar"
+target="_blank"
+class="mapa"
+>
+📍 CÓMO LLEGAR
+</a>
 </div>
 
 <div class="modal" id="modal">
