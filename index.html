@@ -368,18 +368,24 @@ alert("Por favor completa todos los campos");
 return;
 }
 
-alert(
-"¡Gracias " +
-nombre +
-" " +
-apellido +
-"! Tu asistencia fue registrada."
-);
-
-document.getElementById("nombre").value="";
-document.getElementById("apellido").value="";
-
-cerrarModal();
+fetch("https://script.google.com/macros/s/AKfycbwTSHfDI6dAlilq_kn06nX7lw6geCKIkV83L_Ce8psB7rxmHWgppq_hfSC1tCdvg5Hg/exec", {
+    method: "POST",
+    body: new URLSearchParams({
+        nombre: nombre,
+        apellido: apellido
+    })
+})
+.then(() => {
+    alert("¡Gracias " + nombre + " " + apellido + "! Tu asistencia fue registrada.");
+    
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    
+    cerrarModal();
+})
+.catch(() => {
+    alert("Error al registrar la asistencia");
+});
 
 }
 
