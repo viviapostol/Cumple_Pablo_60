@@ -58,6 +58,7 @@ background:linear-gradient(
 transform:rotate(-45deg);
 opacity:.95;
 box-shadow: inset 0 0 15px rgba(255,255,255,.15);
+pointer-events:none;
 }
   
 .invitation::after{
@@ -78,6 +79,7 @@ background:linear-gradient(
 transform:rotate(-45deg);
 opacity:.95;
 box-shadow: inset 0 0 15px rgba(255,255,255,.15);
+pointer-events:none;
 }
 
 .border{
@@ -346,7 +348,7 @@ Av. Gaona 6050<br>
 </div>
 
 </div>
-<button class="confirmar" onclick="alert('hola')">
+<button class="confirmar" onclick="abrirModal()">
 CONFIRMAR ASISTENCIA
 </button>
 <br><br>
@@ -392,7 +394,6 @@ ENVIAR
 <script>
 
 function abrirModal(){
-    alert("FUNCIONA");
     document.getElementById("modal").style.display="flex";
 }
 
